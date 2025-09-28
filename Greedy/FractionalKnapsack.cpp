@@ -4,7 +4,7 @@ struct item{
     int profit;
     int weight;
 };
-bool cmp(pair<int,int> x , pair<int,int> y){
+bool cmp1(pair<int,int> x , pair<int,int> y){
     float ratio1=1.0*x.second/x.first;
     float ratio2=1.0*y.second/y.first;
     return ratio1>ratio2;
@@ -15,7 +15,7 @@ bool cmp2(item x , item y){
     return ratio1>ratio2;
 }
 float maxProfit(vector<pair<int,int>> it, int W){
-    float pro=0;
+    float pro=0;            
     for(auto x : it){
         if(x.first<=W){
             pro+=x.second;
@@ -65,12 +65,12 @@ for(auto t:it){
     cout<<t.first<<"  "<<t.second<<endl;
 }
 cout<<"----------------------------------------------------------"<<endl;
-sort(it.begin(),it.end(),cmp);
+sort(it.begin(),it.end(),cmp1);
 for(auto t:it){
     cout<<t.first<<"  "<<t.second<<endl;
 }
 
 float maxprofit=maxProfit(it,W);
-cout<<"maximu profit="<<maxprofit<<endl;
+cout<<"maximu profit="<<fixed<<setprecision(6)<<maxprofit<<endl;
 return 0;
 }
